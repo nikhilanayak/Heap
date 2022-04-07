@@ -20,6 +20,7 @@ void heap(int* array, int& current){
 
 void rearrange(int* array, int index) {
 	// Written with help from nihal
+	// rearranges the heap to keep its max element in place
 	if (array[(index*2)+1] >= array[(index*2)+2] && array[index] < array[(index*2)+1]) {
 		int tmp = array[(index*2)+1];
 		array[(index*2)+1] = array[index];
@@ -37,6 +38,7 @@ void rearrange(int* array, int index) {
 
 
 void print(int index, int* array, int depth, int size){
+	// print the heap sideways using tabs
 	if((index + 1) * 2 <= size && array[(index + 1) * 2]){
 		print((index + 1) * 2, array, depth + 1, size);
 	}
@@ -56,10 +58,10 @@ int main(int argc, char** argv){
 
 
 	
-	srand(time(0));
+	srand(time(0)); // set random from time seed
 
 
-	int* array = new int[100];
+	int* array = new int[100]; // heap
 	int current = 0;
 
 	memset(array, 100, sizeof(int));
@@ -70,7 +72,7 @@ int main(int argc, char** argv){
 		std::cin >> c;
 
 		switch(c[0]){
-			case 'U': {
+			case 'U': { // upload numbers from argv[1] file
 				std::cout << "How many numbers: ";
 				int numnums;
 				std::cin >> numnums;
@@ -101,7 +103,7 @@ int main(int argc, char** argv){
 
 				break;
 			}
-			case 'A': {
+			case 'A': { // Add numbers manually
 				int num;
 				std::cout << "What number: ";
 				std::cin >> num;
@@ -116,11 +118,11 @@ int main(int argc, char** argv){
 				}
 				break;
 			}
-			case 'P': {
+			case 'P': { // print the current heap
 				print(0, array, 0, current);
 				break;
 			}
-			case 'R': {
+			case 'R': { // remove all elements and print them out in order of removal
 				int size = current;
 				while(size != 0){
 					std::cout << array[0] << ", ";
@@ -132,9 +134,8 @@ int main(int argc, char** argv){
 				std::cout << "\n";
 				break;
 			}
-			case 'Q': {
+			case 'Q': { // quit
 				return 0;
-				break;
 			}
 
 
