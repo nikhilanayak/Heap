@@ -1,3 +1,11 @@
+/*
+ Implementation of the heap ADT in C++ by Nikhil Nayak
+ Used primarily for objects like priority queues to find the largest/smallest element in a "Heap" of numbers
+
+
+ June 11, 2022
+ */
+
 #include <iostream>
 #include <cstring>
 #include <time.h>
